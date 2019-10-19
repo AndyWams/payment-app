@@ -170,6 +170,46 @@
       indicator[initalIndex - 1].className += " active";
       setTimeout(carousel, 15000); // Change image every 8 seconds
     }
+
+        //Operations Scroll Slider
+        $(document).ready(function () {
+      $(window).scroll(function (e) {
+        var scrollVal = $(window).scrollTop();
+        var x1 = $(".methods.mtd-easier").offset().top - 200;
+        var x2 = $(".methods.mtd-faster").offset().top - 200;
+        var x3 = $(".methods.mtd-cheaper").offset().top - 200;
+        //console.log(scrollVal, x1, x2, x3);
+        if (scrollVal >= x1 && scrollVal < x2) {
+          //Easier active
+          $("#transit h4").removeClass("active");
+          $("#transit h4.h-easier").addClass("active");
+          $("#transit .counter").text("01");
+          $(".methods").removeClass("active");
+          $(".methods.mtd-easier").addClass("active");
+
+        }
+        if (scrollVal >= x2 && scrollVal < x3) {
+          //Faster active
+          $("#transit h4").removeClass("active");
+          $("#transit h4.h-faster").addClass("active");
+          $("#transit .counter").text("02");
+
+          $(".methods").removeClass("active");
+          $(".methods.mtd-faster").addClass("active");
+
+        }
+        if (scrollVal >= x3) {
+          //Easier active
+          $("#transit h4").removeClass("active");
+          $("#transit h4.h-cheaper").addClass("active");
+          $("#transit .counter").text("03");
+
+          $(".methods").removeClass("active");
+          $(".methods.mtd-cheaper").addClass("active");
+
+        }
+      })
+    });
 </script>
 </body>
 </html>
